@@ -14,8 +14,11 @@ var getDayName = function(dayNumber) {
 var join = function(arr, delimeter) {
  var output = '';
  for(var i=0; i<arr.length; i++) {
- 	if (i === arr.length - 1 || delimeter === undefined) {
+ 	if (i === arr.length - 1) {
  		output += arr[i];
+ 	}
+ 	else if (delimeter === undefined) {
+ 		output += arr[i] + ' ';
  	}
  	else {
  		output += arr[i] + delimeter;
@@ -31,16 +34,17 @@ var map = function(arr, f) {
  var output = [];
  for(var i=0; i<arr.length; i++) {
   output.push(f(arr[i]));
-  return output;
  }
+  return output;
 };
 
 var filter = function(arr, f) {
  var output = [];
  for(var i=0; i<arr.length; i++) {
   if(f(arr[i])) {
-   output.push(i);
+   output.push(arr[i]);
   }
-  return output;
  }
+  return output;
 };
+
